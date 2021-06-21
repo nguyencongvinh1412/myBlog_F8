@@ -17,6 +17,7 @@ app.engine('hbs', handlebars({
     // thay đổi đuôi mở rộng file handlebars 
     extname: ".hbs"
 }));
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'))
 
