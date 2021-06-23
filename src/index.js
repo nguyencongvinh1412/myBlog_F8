@@ -3,6 +3,9 @@ const express = require('express');
 const handlebars  = require('express-handlebars');
 const morgan = require('morgan');
 
+//require index.route file
+const route = require('./routes/index.route');
+
 const app = express();
 const port = 3000;
 
@@ -22,7 +25,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'))
 
 // routing
-app.get('/', (req, res) => res.render('home'))
+app.use('/', route);
 
 app.listen(port, (req, res) => {
     console.log("Listening on port: " + port);
