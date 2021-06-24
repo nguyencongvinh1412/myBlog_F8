@@ -1,0 +1,17 @@
+<div class="update-pet">
+    <form method="post" action="/pets/update/{{pet._id}}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" value="{{pet.name}}" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description">{{pet.description}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="linkImage" class="form-label">Link Image</label>
+            <input type="text" class="form-control" id="linkImage" value="{{pet.image}}" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

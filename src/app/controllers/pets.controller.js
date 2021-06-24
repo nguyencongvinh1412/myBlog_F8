@@ -27,6 +27,34 @@ class newsController {
             })
             .catch((err) => next(err));
     }
+
+    petsPosted(req, res, next) {
+        const data = db.find({})
+            .then(pets => {
+                pets = pets.map(pet => pet.toObject());
+                res.render('me/petPosted', {pets});
+            })
+            .catch((err) => next(err));
+    }
+
+    edit(req, res, next) {
+        const id = req.params.id;
+        db.findById({_id: id})
+            .then(pet => {
+                pet = pet.toObject();
+                res.render('pets/update', {pet});
+            })
+            .catch((err) => next(err));
+    }
+    update(req, res, next) {
+        const id = req.params.id;
+        const data = req.body;
+        db.findByIdAndUpdate({_id: id}, data)
+            .then(() => {
+                res.redirect('/pets/posted');
+            })
+            .catch((err) => next(err));
+    }
 }
 
 module.exports = new newsController;

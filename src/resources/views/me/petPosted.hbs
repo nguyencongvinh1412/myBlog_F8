@@ -1,0 +1,24 @@
+<div class="mt-4">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col" colspan="4">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pets}}
+            <tr>
+            <th scope="row">{{@index}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td><img src="{{this.image}}" alt="{{this.name}}" style="width: 64px; height: 64px;"></td>
+            <td><a href="/pets/update/{{this._id}}" class="btn btn-link">Update</a></td>
+            <td><a href="#" class="btn btn-link">Delete</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
