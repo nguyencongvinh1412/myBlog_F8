@@ -7,11 +7,15 @@
 
         <div class="col-pet col-sm-6 col-lg-4 mb-5">
             <div class="card">
-                <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
+                <a href="/pets/{{this.name}}" class="link-detai">
+                    <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title">{{this.name}}</h5>
+                    <a href="/pets/{{this.name}}" class="link-detai">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
                     <p class="card-text">{{this.description}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="/pets/{{this.name}}" class="btn btn-primary">Go Detail</a>
                 </div>
             </div>
         </div>

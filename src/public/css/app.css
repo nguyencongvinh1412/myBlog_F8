@@ -4,3 +4,10 @@ h1 {
 #logo {
   width: 40px;
   height: 40px; }
+
+.link-detai {
+  text-decoration: none;
+  color: black; }
+
+.link-detai :hover {
+  color: blue; }
