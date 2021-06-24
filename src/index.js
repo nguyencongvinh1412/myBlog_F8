@@ -6,8 +6,13 @@ const morgan = require('morgan');
 //require index.route file
 const route = require('./routes/index.route');
 
+// database 
+const db = require('./config/db/connect');
+db.connect();
+
 const app = express();
 const port = 3000;
+
 
 // logger url
 app.use(morgan("combined"))
@@ -22,7 +27,7 @@ app.engine('hbs', handlebars({
 }));
 
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'))
+app.set('views', path.join(__dirname, 'resources', 'views'))
 
 // routing
 app.use('/', route);
