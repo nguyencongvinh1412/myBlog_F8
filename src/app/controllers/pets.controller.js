@@ -58,6 +58,29 @@ class newsController {
 
     delete(req, res, next) {
         const id = req.params.id;
+        db.delete({_id: id})
+            .then(() => res.redirect('back'))
+            .catch(err => next(err));
+    }
+
+    trashGet(req, res, next) {
+        db.findDeleted({})
+            .then(pets => {
+                pets = pets.map(pet => pet.toObject());
+                res.render('me/petsTrash', {pets});
+            })
+            .catch((err) => next(err));
+    }
+
+    restore(req, res, next) {
+        const id = req.params.id;
+        db.restore({_id: id})
+            .then(() => res.redirect('back'))
+            .catch((err) => next(err));
+    }
+
+    forcedelete(req, res, next) {
+        const id = req.params.id;
         db.deleteOne({_id: id})
             .then(() => res.redirect('back'))
             .catch(err => next(err));

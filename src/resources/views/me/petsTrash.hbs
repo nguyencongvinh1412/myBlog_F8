@@ -1,7 +1,6 @@
 <div class="mt-4">
     <div>
-      <h4><strong>Danh sách thú cưng.</strong></h4>
-      <a href="/pets/trash" class="nav-link">Thùng rác</a>
+      <h4><strong>Danh sách thú cưng đã xóa.</strong></h4>
     </div>
     <table class="table table-hover">
         <thead>
@@ -9,6 +8,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
+            <th scope="col">Time deleted</th>
             <th scope="col" colspan="4">Image</th>
             </tr>
         </thead>
@@ -18,16 +18,17 @@
             <th scope="row">{{@index}}</th>
             <td>{{this.name}}</td>
             <td>{{this.description}}</td>
+            <td>{{this.deletedAt}}</td>
             <td><img src="{{this.image}}" alt="{{this.name}}" style="width: 64px; height: 64px;"></td>
-            <td><a href="/pets/update/{{this._id}}" class="btn btn-link">Update</a></td>
-            <td><a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#deleteDiablog" data-id="{{this._id}}">Delete</a></td>
+            <td><a href="/pets/restore/{{this._id}}" class="btn btn-link">Restore</a></td>
+            <td><a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#deleteDiablog" data-id="{{this._id}}">Force Delete</a></td>
             </tr>
 
             {{else}}
             <tr class="text-center">
               <td colspan="6">
-                Bạn chưa đăng thú cưng nào.
-                <a href="/pets/create">Đăng thú cưng</a>
+                Thùng rác trống
+                <a href="/pets/posted">Danh sách thú cưng</a>
               </td>
             </tr>
 
@@ -45,7 +46,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete this pet?</p>
+        <p><strong>Are you sure you want to force delete this pet?</strong></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" id="btn-delete">Delete</button>
@@ -75,7 +76,7 @@
     })
 
     btnDelete.addEventListener('click', function() {
-        formdeletepet.action = '/pets/delete/' + id;
+        formdeletepet.action = '/pets/forcedelete/' + id;
         formdeletepet.submit();
     });
 

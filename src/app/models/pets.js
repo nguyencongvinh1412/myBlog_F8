@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongoose_delete = require('mongoose-delete');
+
 const Schema = mongoose.Schema;
 
 const Pets = new Schema({
@@ -6,5 +8,12 @@ const Pets = new Schema({
     description: String,
     image: String,
   });
+
+Pets.plugin(mongoose_delete,
+  {
+    deletedAt : true,
+    overrideMethods: 'all', 
+  }
+);
 
 module.exports = mongoose.model('pets', Pets);

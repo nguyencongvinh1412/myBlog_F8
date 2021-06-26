@@ -8,6 +8,9 @@ route.get('/posted', petsController.petsPosted);
 route.get('/update/:id', petsController.edit);
 route.post('/update/:id', petsController.update);
 route.post('/delete/:id', petsController.delete);
+route.get('/trash', petsController.trashGet);
+route.get('/restore/:id', petsController.restore);
+route.post('/forcedelete/:id', petsController.forcedelete);
 
 // luôn để dưới cùng
 route.get('/:name', petsController.detail);
