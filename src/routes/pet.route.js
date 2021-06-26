@@ -7,6 +7,9 @@ route.post('/create', petsController.createPost);
 route.get('/posted', petsController.petsPosted);
 route.get('/update/:id', petsController.edit);
 route.post('/update/:id', petsController.update);
+route.post('/delete/:id', petsController.delete);
+
+// luôn để dưới cùng
 route.get('/:name', petsController.detail);
 
 module.exports = route;

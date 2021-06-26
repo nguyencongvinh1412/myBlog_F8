@@ -55,6 +55,13 @@ class newsController {
             })
             .catch((err) => next(err));
     }
+
+    delete(req, res, next) {
+        const id = req.params.id;
+        db.deleteOne({_id: id})
+            .then(() => res.redirect('back'))
+            .catch(err => next(err));
+    }
 }
 
 module.exports = new newsController;
