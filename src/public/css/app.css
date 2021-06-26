@@ -11,3 +11,7 @@ h1 {
 
 .link-detai :hover {
   color: blue; }
+
+.select-form {
+  margin-left: 16px;
+  margin-right: 16px; }

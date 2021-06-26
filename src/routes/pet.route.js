@@ -11,6 +11,7 @@ route.post('/delete/:id', petsController.delete);
 route.get('/trash', petsController.trashGet);
 route.get('/restore/:id', petsController.restore);
 route.post('/forcedelete/:id', petsController.forcedelete);
+route.post('/deleteMulty', petsController.deleteMulty);
 
 // luôn để dưới cùng
 route.get('/:name', petsController.detail);

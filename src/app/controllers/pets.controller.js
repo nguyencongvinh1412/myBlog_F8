@@ -85,6 +85,20 @@ class newsController {
             .then(() => res.redirect('back'))
             .catch(err => next(err));
     }
+
+    deleteMulty(req, res, next) {
+        var data = req.body;
+
+        switch(data.selectAction) {
+            case 'delete':
+                db.delete({_id: data.checkboxItem})
+                    .then(() => res.redirect('back'))
+                    .catch(err => next(err));
+                break;
+            default: 
+                res.json({message: 'Action is invalid'});
+        }
+    }
 }
 
 module.exports = new newsController;
