@@ -15,7 +15,7 @@
         <tbody>
             {{#each pets}}
             <tr>
-            <th scope="row">{{@index}}</th>
+            <th scope="row">{{sum @index 1}}</th>
             <td>{{this.name}}</td>
             <td>{{this.description}}</td>
             <td>{{this.deletedAt}}</td>

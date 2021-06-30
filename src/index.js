@@ -3,11 +3,15 @@ const express = require('express');
 const handlebars  = require('express-handlebars');
 const morgan = require('morgan');
 
+// helpler function of handlebars
+const helperHandlebar = require('./helpers/sum.handlebars');
+
 //require index.route file
 const route = require('./routes/index.route');
 
 // database 
 const db = require('./config/db/connect');
+const { type } = require('os');
 db.connect();
 
 const app = express();
@@ -28,7 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // template engine
 app.engine('hbs', handlebars({
     // thay đổi đuôi mở rộng file handlebars 
-    extname: ".hbs"
+    extname: ".hbs",
+    helpers: {
+        sum: helperHandlebar.sum,
+        sort: helperHandlebar.sort,
+    }
 }));
 
 app.set('view engine', 'hbs');

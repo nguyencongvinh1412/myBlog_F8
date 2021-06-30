@@ -1,10 +1,11 @@
 const express = require('express');
 const route = express.Router();
 const petsController = require('../app/controllers/pets.controller');
+const sortMiddleware = require('../middlewares/sort.middleware');
 
 route.get('/create', petsController.createGet);
 route.post('/create', petsController.createPost);
-route.get('/posted', petsController.petsPosted);
+route.get('/posted', sortMiddleware.sortMiddleware, petsController.petsPosted);
 route.get('/update/:id', petsController.edit);
 route.post('/update/:id', petsController.update);
 route.post('/delete/:id', petsController.delete);

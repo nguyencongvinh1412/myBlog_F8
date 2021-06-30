@@ -15,3 +15,7 @@ h1 {
 .select-form {
   margin-left: 16px;
   margin-right: 16px; }
+
+#background-image-404 {
+  display: block;
+  margin: auto; }

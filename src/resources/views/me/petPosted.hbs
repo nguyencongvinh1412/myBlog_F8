@@ -25,13 +25,20 @@
         <button type="submit" class="btn btn-primary btn-sm disabled" id="btn-action">Executive</button>
       </div>
     </div>
+
     <table class="table table-hover">
         <thead>
             <tr>
             <th></th>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
+            <th scope="col">
+              Name
+              {{{sort 'name' _sort}}}
+            </th>
+            <th scope="col">
+              Description
+              {{{sort 'description' _sort}}}
+            </th>
             <th scope="col" colspan="4">Image</th>
             </tr>
         </thead>
@@ -41,7 +48,7 @@
             <td>
               <input class="form-check-input checkbox-item" type="checkbox" value="{{this._id}}" name="checkboxItem[]">
             </td>
-            <th scope="row">{{@index}}</th>
+            <th scope="row">{{sum @index 1}}</th>
             <td>{{this.name}}</td>
             <td>{{this.description}}</td>
             <td><img src="{{this.image}}" alt="{{this.name}}" style="width: 64px; height: 64px;"></td>

@@ -29,12 +29,20 @@ class newsController {
     }
 
     petsPosted(req, res, next) {
-        const data = db.find({})
-            .then(pets => {
-                pets = pets.map(pet => pet.toObject());
-                res.render('me/petPosted', {pets});
+        let data = db.find({});
+
+        //to sort data
+        if(req.query.hasOwnProperty('sort')) {
+            data.sort({
+                [res.locals._sort.column]: res.locals._sort.type
             })
-            .catch((err) => next(err));
+        }
+        
+        data.then(pets => {
+            pets = pets.map(pet => pet.toObject());
+            res.render('me/petPosted', {pets});
+        })
+        .catch((err) => next(err));
     }
 
     edit(req, res, next) {
