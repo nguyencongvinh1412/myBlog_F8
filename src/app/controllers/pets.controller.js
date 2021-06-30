@@ -72,8 +72,16 @@ class newsController {
     }
 
     trashGet(req, res, next) {
-        db.findDeleted({})
-            .then(pets => {
+        let data = db.findDeleted({});
+
+        //to sort data
+        if(req.query.hasOwnProperty('sort')) {
+            data.sort({
+                [res.locals._sort.column]: res.locals._sort.type
+            })
+        }
+
+        data.then(pets => {
                 pets = pets.map(pet => pet.toObject());
                 res.render('me/petsTrash', {pets});
             })

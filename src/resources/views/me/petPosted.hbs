@@ -30,7 +30,10 @@
         <thead>
             <tr>
             <th></th>
-            <th scope="col">#</th>
+            <th scope="col">
+              #
+              {{{sort 'index' _sort}}}
+            </th>
             <th scope="col">
               Name
               {{{sort 'name' _sort}}}
@@ -48,7 +51,7 @@
             <td>
               <input class="form-check-input checkbox-item" type="checkbox" value="{{this._id}}" name="checkboxItem[]">
             </td>
-            <th scope="row">{{sum @index 1}}</th>
+            <th scope="row">{{this.index}}</th>
             <td>{{this.name}}</td>
             <td>{{this.description}}</td>
             <td><img src="{{this.image}}" alt="{{this.name}}" style="width: 64px; height: 64px;"></td>
