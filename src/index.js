@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express');
 const handlebars  = require('express-handlebars');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 // helpler function of handlebars
 const helperHandlebar = require('./helpers/sum.handlebars');
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 
 // logger url
-app.use(morgan("combined"))
+// app.use(morgan("combined"))
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
