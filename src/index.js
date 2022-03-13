@@ -1,7 +1,10 @@
 const path = require('path')
 const express = require('express');
-const handlebars  = require('express-handlebars');
+const handlebars = require('express-handlebars');
 // const morgan = require('morgan');
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 // helpler function of handlebars
 const helperHandlebar = require('./helpers/sum.handlebars');
@@ -11,11 +14,11 @@ const route = require('./routes/index.route');
 
 // database 
 const db = require('./config/db/connect');
-const { type } = require('os');
+// const { type } = require('os');
 db.connect();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // body 
 app.use(express.json()) // for parsing application/json

@@ -4,7 +4,7 @@ async function connect() {
     
   try {
       await mongoose.connect(
-        'mongodb+srv://congvinh:Congvinh@cv9firstblogproject.4ooie.mongodb.net/demo_blog?retryWrites=true&w=majority'
+        process.env.MONGOOSE_URL
       , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
